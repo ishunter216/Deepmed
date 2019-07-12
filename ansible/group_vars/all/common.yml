@@ -1,0 +1,50 @@
+---
+### SWAP ###
+swapfile_location: /swapfile
+swapfile_use_dd: False
+swapfile_size: 4096MB
+
+
+### Apt ###
+apt_enabled: yes  # Enable the role
+apt_default_packages: # List of packages which will be installed
+  - command-not-found
+  - curl
+  - htop
+  - iftop
+  - iotop
+  - mercurial
+  - nmap
+  - pciutils
+  - screen
+  - sysstat
+  - vim
+  - wget
+  - ack-grep
+  - dstat
+  - mosh
+  - pciutils
+  - unzip
+  - p7zip-full
+apt_packages: # Set list of additional packages which will be installed
+  - python-pip
+  - graphviz
+  - libgraphviz-dev
+  - pkg-config
+  - build-essential
+  - python-dev
+  - python-setuptools
+  - libcurl4-openssl-dev
+  - libffi-dev
+  - libssl-dev
+  - libpq-dev
+  - wkhtmltopdf
+  - xvfb
+
+
+### Git ###
+git_version: 2.13.2
+
+
+### NTP ###
+ntp_timezone: UTC

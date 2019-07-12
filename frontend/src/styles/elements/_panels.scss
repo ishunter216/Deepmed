@@ -1,0 +1,98 @@
+/*--------------------------------------------------------------
+## Panels
+--------------------------------------------------------------*/
+
+/* Panel Primary */
+.panel-primary > .panel-heading {
+  background-color: $color__brand_blue;
+  border-color: $color__brand_blue;
+}
+.panel-primary {
+  border-color: $color__brand_blue;
+}
+
+/* Custom White Area */
+.custom-panel {
+	background-color:#fff;
+	padding:30px;
+	border:1px solid $color__border_gray;
+	@include border-radius(5px);
+	margin-bottom:30px;
+	position:relative;
+
+	@include media (max-width $screen_size__xs) {
+		padding:15px;
+		margin-bottom:15px;
+	}
+
+	&.custom-panel-md {
+		width:710px;
+		max-width: 100%;
+		display: inline-block;
+	}
+
+	&.custom-panel-condensed {
+		padding:15px;
+	}
+
+	&.custom-panel-push-bot-1 {
+		margin-bottom:30px;
+	}
+
+	&.custom-panel-no-pad {
+		padding:0;
+	}
+
+	&.custom-panel-no-lateral-pad {
+		padding-left:0;
+		padding-right:0;
+	}
+
+	&.custom-panel-no-vertical-pad {
+		padding-top:0;
+		padding-bottom:0;
+	}
+
+	&.gradient-bg {
+		@include brand_gradient();
+	}
+
+	&.green-bg {
+		background-color:$color__brand_green;
+	}
+
+	&.blue-bg {
+		background-color:$color__brand_blue;
+	}
+
+	&.gray-bg {
+		background-color:$color__brand_gray;
+	}
+
+	&.light-gray-bg {
+		background-color:$color__brand_gray_light;
+	}
+
+	&.custom-panel-squared {
+		@include border-radius(0);
+	}
+
+	&.transparent-bg {
+		background-color:transparent;
+	}
+}
+
+.scroll-x {
+	overflow-x: scroll;
+}
+.scroll-y {
+	overflow-y: scroll;
+}
+
+[data-adjust="height"] {
+	@include media (max-width $screen_size__sm) {
+		height:auto!important;
+		min-height: 0!important;
+	}
+}
+

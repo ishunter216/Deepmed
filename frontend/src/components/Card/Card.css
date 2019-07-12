@@ -1,0 +1,14 @@
+.header {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.card {
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #f0f0f2;
+  border-radius: 5px;
+  height: 100%;
+}

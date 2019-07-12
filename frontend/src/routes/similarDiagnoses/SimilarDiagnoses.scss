@@ -1,0 +1,24 @@
+.overallPlansTable {
+  & th,
+  & td {
+    /*override bootstrap developers code*/
+    padding: 8px !important;
+    text-align: center;
+  }
+}
+
+.overallPlansTopHeader {
+  & > th {
+    border-right: 1px solid #f0f0f2;
+  }
+}
+
+.overallPlansBottomHeader {
+  & > th {
+    border-top: 1px solid #f0f0f2 !important;
+  }
+}
+
+.borderRight {
+  border-right: 1px solid #f0f0f2;
+}

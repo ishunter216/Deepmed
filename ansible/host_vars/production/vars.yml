@@ -1,0 +1,90 @@
+---
+### Deploy ###
+deploy_env: production
+force_upgrade: yes
+project_repo_branch: 'vagrant'
+
+### Project ###
+ml_command_file: '/home/deepmed/ML_Testing/command_line.py'
+ml_command_dir: '/home/deepmed/ML_Testing/'
+ml_python_path: '/home/deepmed/anaconda3/bin/python'
+skip_checkout: no
+run_mongo: no
+site_domain: 'portal.deepmed.com'
+api_domain: 'api-portal.deepmed.com'
+api_port: 80
+
+
+### Local settings ###
+debug: False
+
+environment_config:
+  DJANGO_SETTINGS_MODULE: '{{ django_settings }}'
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+  LANGUAGE: en_US.UTF-8
+
+nginx_sites:
+  project_webapp:
+    - listen 80
+    - server_name {{ site_domain }}
+    - charset utf-8
+    - server_tokens off
+    - auth_basic "Restricted"
+    - access_log {{ deploy_log_dir }}/nginx-access.log
+    - error_log {{ deploy_log_dir }}/nginx-error.log
+    - client_max_body_size 10M # Max upload size
+    - location / {
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-NginX-Proxy true;
+        proxy_set_header Connection "";
+        proxy_http_version 1.1;
+
+        proxy_pass http://{{ deploy_project_name }}_webapp;
+      }
+
+  project_django:
+    - listen {{ api_port }}
+    - server_name {{ api_domain }}
+    - charset utf-8
+    - server_tokens off
+    - access_log {{ deploy_log_dir }}/nginx-access.log
+    - error_log {{ deploy_log_dir }}/nginx-error.log
+    - client_max_body_size 10M # Max upload size
+
+    - location {{ django_static_url }} {
+          alias {{ django_static_root }};
+          access_log off;
+          expires max;
+      }
+
+    - location {{ django_media_url }} {
+          alias {{ django_media_root }};
+          access_log off;
+          expires max;
+      }
+
+    - location /ws {
+          proxy_pass http://{{ django_channels_daphne_host }}:{{ django_channels_daphne_port }};
+          proxy_http_version  1.1;
+          proxy_set_header    Upgrade $http_upgrade;
+          proxy_set_header    Connection "upgrade";
+          proxy_set_header    Host $http_host;
+          proxy_set_header    X-Real-IP $remote_addr;
+      }
+
+    - location / {
+          proxy_read_timeout 300;
+          proxy_connect_timeout 300;
+          proxy_redirect off;
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_set_header Host $http_host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_pass http://{{ django_channels_daphne_host }}:{{ django_channels_daphne_port }};
+      }
+
+nginx_remove_sites: [default]

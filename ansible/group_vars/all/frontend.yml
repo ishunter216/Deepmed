@@ -1,0 +1,12 @@
+---
+### Frontend ###
+frontend_src_dir: '{{ deploy_src_dir }}/frontend'
+
+### Node.JS ###
+nodejs_version: "8.x"
+NODE_ENV: 'production'
+
+
+### WebApp ###
+webapp_host: localhost
+webapp_port: 3000

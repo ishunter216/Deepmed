@@ -1,0 +1,6 @@
+---
+run_mongo: yes
+mongodb_backup_enabled: false
+
+mongodb_user: mongodb
+mongodb_version: "3.2.18"

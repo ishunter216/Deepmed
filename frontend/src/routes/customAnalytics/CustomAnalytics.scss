@@ -1,0 +1,52 @@
+@import "../../styles/variables.css";
+
+.filter {
+  margin-bottom: 1rem;
+}
+
+.chartColumn {
+  display: flex;
+  flex-direction: column;
+
+  @media (--sm-down) {
+    margin-top: 1rem;
+  }
+}
+
+.chartWrapper {
+  margin-top: 2rem;
+  flex: 1;
+}
+
+.chartCard {
+}
+
+.submitBtnWrapper {
+}
+
+.groupWrapper {
+
+}
+
+.field {
+  @media (--md-up) {
+    max-width: 200px;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  @media (--sm-down) {
+    margin-top: 1rem;
+    justify-content: space-between;
+  }
+
+}
+
+.clearFiltersBtn {
+  cursor: pointer;
+  margin-right: 1rem;
+}

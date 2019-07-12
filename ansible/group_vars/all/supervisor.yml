@@ -1,0 +1,38 @@
+---
+supervisor_programs:
+## Django
+#  dm-gunicorn:
+#    name: '{{ deploy_project_name }}-gunicorn'
+#    command: '{{ gunicorn_virtualenv }}/bin/gunicorn {{ django_app_name }}.wsgi --config {{ deploy_etc_dir }}/{{ gunicorn_app_name }}_gunicorn.py'
+#    directory: '{{ django_dir }}'
+#    environment: 'DJANGO_SETTINGS_MODULE={{ django_settings }}'
+#    autostart: true
+#    autorestart: true
+#    user: '{{ deploy_user }}'
+# Django Channels
+  dm-channels:
+    name: '{{ deploy_project_name }}-channels'
+    command: '{{ gunicorn_virtualenv }}/bin/daphne -b {{ django_channels_daphne_host }} -p {{ django_channels_daphne_port }} {{ django_app_name }}.asgi:application'
+    directory: '{{ django_dir }}'
+    environment: 'DJANGO_SETTINGS_MODULE={{ django_settings }}'
+    autostart: true
+    autorestart: true
+    user: '{{ deploy_user }}'
+# React
+  dm-webapp:
+    name: '{{ deploy_project_name }}-webapp'
+    command: 'node server.js'
+    directory: '{{ frontend_src_dir }}/build'
+    environment: 'PORT={{ webapp_port }},NODE_ENV=production,API_URL={{ site_protocol }}://{{ api_domain }}:{{ api_port }}/api,CLIENT_ID=4XnsRtTGMUp1TO3WCniWsl5THzLNmjcfqU5Keh5C,CLIENT_SECRET=ugpViM0R277iKi70ZMB9PI126gFygDkHau7Ztf11L9yuQ9c8uWIzXExhoMetgJpV1YAS9szAsjs6KmCM4IIl8Y5zFhmUDBfj07o7nUCQp2MmM66GBvn3lvSCY3z2WfPn'
+    autostart: true
+    autorestart: true
+    user: '{{ deploy_user }}'
+  # Flower
+  dm-flower:
+    name: "{{ deploy_project_name }}-flower"
+    command: "{{ virtualenv_dir }}/bin/flower -A {{ deploy_project_name }} --app={{ celery_app_module }} --address={{ flower_host }} --port={{ flower_port }}"
+    directory: "{{ django_dir }}"
+    environment: "DJANGO_SETTINGS_MODULE={{ django_settings }}"
+    autostart: true
+    autorestart: true
+    user: "{{ deploy_user }}"

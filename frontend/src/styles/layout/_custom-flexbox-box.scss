@@ -1,0 +1,25 @@
+// Custom-flex-box 
+
+.flex-box {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: -ms-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	justify-content: space-between;
+
+	@include media (max-width $screen_size__md) {
+		div[class^="col-md-"] {
+			width:100%;
+		}
+	}
+
+	@include media (max-width $screen_size__sm) {
+		div[class^="col-sm-"] {
+			width:100%;
+		}
+	}
+}

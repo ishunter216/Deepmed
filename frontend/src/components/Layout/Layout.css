@@ -1,0 +1,22 @@
+.header {
+  padding-left: 0;
+  padding-right: 0;
+  background: white;
+}
+
+.nav {
+  background: #47cfd1;
+}
+
+.logoWrapper {
+  width: 200px;
+  float: left;
+  background: #47cfd1;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+}

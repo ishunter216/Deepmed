@@ -1,0 +1,51 @@
+/*--------------------------------------------------------------
+## Main Wrapper & Containers
+--------------------------------------------------------------*/
+html.scroll {
+	overflow-y:scroll;
+}
+
+body {
+	background-color:#fff;
+	overflow-x:hidden;
+}
+
+.main-wrapper {
+	padding-top:$container__topbar_height;
+	padding-bottom:30px;
+	padding-left: $container__sidebar_width;
+	position:relative;
+	@include transition($container__sidebar_transition);
+
+	@include media (max-width $screen_size__tablet) {
+		padding-left:0;
+		padding-top:0!important;
+	}
+}
+
+.content-wrapper {
+	padding-top:30px;
+	z-index:1;
+	position:relative;
+}
+
+.container {
+	max-width:100%;
+	padding-left:30px;
+	padding-right:30px;
+
+	@include media (max-width $screen_size__phone) {
+		padding-left:15px;
+		padding-right:15px;
+	}
+}
+
+.container-full {
+	width:100%;
+	//max-width: 1600px;
+}
+
+.container-sm {
+	width:400px;
+	padding:15px;
+}

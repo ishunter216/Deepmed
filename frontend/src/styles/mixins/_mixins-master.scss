@@ -1,0 +1,67 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+    font-size: ($sizeValue * 16) * 1px;
+    font-size: $sizeValue * 1rem;
+}
+
+// Transitions
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// Center block
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+    content: "";
+    display: table;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+    clear: both;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin padding-all($top, $right, $bottom, $left) {
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+}
+@mixin black-and-white($percent) {
+    -webkit-filter: grayscale($percent);
+    filter: grayscale($percent);
+}
+@mixin box-sizing($box-sizing) {
+    -webkit-box-sizing:$box-sizing;
+    -moz-box-sizing:$box-sizing;
+    box-sizing:$box-sizing;
+}
+@mixin box-shadow($box-shadow) {
+    -webkit-box-shadow:$box-shadow;
+    -moz-box-shadow:$box-shadow;
+    box-shadow:$box-shadow;
+}

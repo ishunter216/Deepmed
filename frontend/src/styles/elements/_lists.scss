@@ -1,0 +1,50 @@
+/*--------------------------------------------------------------
+## Lists
+--------------------------------------------------------------*/
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  background-color: $color__brand_blue;
+  border-color: $color__brand_blue;
+}
+
+.list-group-no-border {
+	border:0 none;
+	@include border-radius(0);
+
+	> li {
+		border:0 none;
+		border-top:1px solid #ddd;
+		padding-left:0;
+		padding-right:10px;
+		@include border-radius(0!important);
+
+		&.no-border {
+			border:0 none;
+		}
+	}
+}
+
+ul {
+
+	li.divider {
+		list-style: none;
+		height:1px;
+		width:100%;
+		background-color: #ddd;
+		margin:20px 0;
+	}
+
+	&.ul-no-bullets {
+		list-style:none;
+		padding:0;
+
+		li {
+			padding:0;
+		}
+	}
+
+	li.list-title {
+		list-style:none;
+		list-style-type: none;
+	}
+}

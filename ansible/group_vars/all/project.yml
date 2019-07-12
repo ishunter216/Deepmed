@@ -1,0 +1,43 @@
+---
+### Backend ###
+project_repo: 'git@github.com:thraxcap/deepmed.git'
+project_repo_branch: 'master'
+
+### Deploy ###
+deploy_project_name: 'deepmed'
+deploy_env: production
+deploy_user: '{{ ansible_user }}'           # Set deploy user
+deploy_group: '{{ deploy_user }}'               # Set deploy group
+
+deploy_prefix: '/home/{{ deploy_user }}'
+deploy_dir: '{{ deploy_prefix }}/{{ deploy_project_name }}' # Main directory for deploiment
+deploy_etc_dir: '{{ deploy_dir }}/etc'          # Directory where placed configuration files
+deploy_log_dir: '{{ deploy_dir }}/log'          # Directory where placed logs
+deploy_run_dir: '{{ deploy_dir }}/run'          # Directory where placed unix sockets and pid files
+deploy_src_dir: '{{ deploy_dir }}/src'          # Source's directory
+deploy_bin_dir: '{{ deploy_dir }}/bin'          # Directory where placed scripts
+deploy_dir_skip: []
+
+
+### Domains ###
+site_domain: 'deepmed.local'
+api_domain: 'api.{{ site_domain }}'
+site_port: 80
+api_port: 80
+flower_domain: 'flower.{{ site_domain }}'
+
+site_protocol: http
+
+
+### Options ###
+ml_surgery_file: ''
+ml_python_path: '/usr/bin/python'
+skip_checkout: no
+force_upgrade: no
+run_handlers: yes
+
+environment_config:
+  DJANGO_SETTINGS_MODULE: '{{ django_settings }}'
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+  LANGUAGE: en_US.UTF-8

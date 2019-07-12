@@ -1,0 +1,189 @@
+/*--------------------------------------------------------------
+## Nav Tabs
+--------------------------------------------------------------*/
+.nav-tabs-container {
+	background-color:$color__brand_gray_light;
+	border-bottom:1px solid $color__border_gray;
+
+	@include media (max-width $screen_size__phone) {
+		border-bottom:0 none;
+	}
+
+	.container {
+		@include media (max-width $screen_size__phone) {
+			padding:0;
+		}
+	}
+}
+ul.nav.nav-tabs {
+	background-color:transparent;
+	border: 0 none;
+	padding:0;
+	width:100%;
+	border-bottom:1px solid #e8ebed;
+	display:inline-block;
+
+
+	@include media (max-width $screen_size__phone) {
+		display: block;
+		border-bottom:none;
+	}
+
+	@include media (max-width $screen_size__phone) {
+		text-align: left;
+		margin:0;
+	}	
+
+	li {
+		border:0 none;
+		@include border-radius(0);
+		margin-right:7rem;
+		float: none;
+		display: inline-block;
+		position: relative;
+
+		@include media (max-width $screen_size__normal) {
+			margin-right:3.5rem;
+		}
+
+		@include media (max-width $screen_size__tablet) {
+			margin-right:2rem;
+		}
+
+		@include media (max-width $screen_size__phone) {
+			margin:0;
+			padding-right:7px;
+			padding-left:7px;
+			display: block;
+			clear:both;
+			border-bottom:1px solid $color__border_gray;
+		}
+
+		a {
+			border:0 none;
+			@include border-radius(0);
+			background-color:transparent;
+			font-size:1.1em;
+			font-weight: 400;
+			color:$color__text_paragraph;
+			padding:15px 0;
+			line-height: 100%;
+			position: relative;
+
+			&:hover,
+			&:active,
+			&:focus,
+			&.active,
+			&.focus {
+				border:0 none;
+				@include border-radius(0);
+				background-color:transparent;
+				color:$color__text_heading;
+			}
+		}
+
+		&.active {
+
+			a {
+				color:$color__brand_blue;
+				font-weight: 700;
+
+				&::after {
+					content:" ";
+					position: absolute;
+					bottom:-1px;
+					left:0;
+					height:4px;
+					width:100%;
+					background-color:$color__brand_blue;
+
+					@include media (max-width $screen_size__phone) {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.edit-nav-tab-label {
+			position:absolute;
+			right:-7px;
+			top:10px;
+			cursor:pointer;
+			display:none;
+
+			@include media (max-width $screen_size__phone) {
+				right:14px;
+			}
+
+			&:hover {
+				color:$color__brand_blue;
+			}
+		}
+
+		&:hover {
+			.edit-nav-tab-label {
+				//display:block;
+			}
+		}
+
+		form {
+			display: none;
+		}
+
+		&.edit {
+			form {
+				display: block;
+			}
+			.nav-tab-link {
+				display: none;
+			}
+			.edit-nav-tab-label {
+				display: none!important;
+			}
+		}
+	}
+
+	&.nav-justified {
+		margin:0;
+
+		> li {
+		  display: table-cell;
+		  width: 1%;
+		  float:none;
+
+		  a {
+		  		border-top:none;
+		  		border-left:none;
+		  		border-right:none;
+			}
+		}
+	}
+}
+
+.modal-content {
+	ul.nav.nav-tabs {
+		text-align: center;
+	 li {
+			margin-right: 10px;
+			margin-left: 10px;
+			display: inline-block;
+			float: none;
+		}
+	}
+}
+
+/* Pills */
+.nav-pills > li.active > a, 
+.nav-pills > li.active > a:hover, 
+.nav-pills > li.active > a:focus {
+  background-color: $color__brand_blue;
+}
+
+/* Add Project / Doc Circle Button */
+.add-project-circle {
+	@include media (max-width $screen_size__sm) {
+		position: absolute;
+		top:5px;
+		right:5px;
+	}
+}

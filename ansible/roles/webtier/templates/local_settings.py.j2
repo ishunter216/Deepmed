@@ -1,0 +1,117 @@
+from celery.schedules import crontab
+DEBUG = {{ debug }}
+
+
+# -----------------
+# STATIC & MEDIA
+# -----------------
+
+MEDIA_URL = '{{ django_media_url }}/'
+MEDIA_ROOT = '{{ django_media_root }}'
+STATIC_URL = '{{ django_static_url }}/'
+STATIC_ROOT = '{{ django_static_root }}'
+
+SECRET_KEY = '{{ secret_key }}'
+
+# -----------------
+# Database
+# -----------------
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '{{ database_name }}',
+        'USER': '{{ database_user }}',
+        'PASSWORD': '{{ database_password }}',
+        'HOST': '{{ database_host }}',
+        'PORT': {{ database_port }},
+    }
+}
+
+# -----------------
+# Cache
+# -----------------
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': '{{ cache_default_location }}',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'PARSER_CLASS': 'redis.connection.HiredisParser',
+        }
+    }
+}
+
+
+# -----------------
+# Celery
+# -----------------
+
+BROKER_URL = '{{ cache_celery_location }}'
+CELERY_RESULT_BACKEND = '{{ cache_celery_result_location }}'
+
+CELERYBEAT_SCHEDULE = {
+    'periodic_creating_fixtures': {
+        'task': 'common.tasks.create_master_policies_fixtures',
+        'schedule': crontab(hour=2, minute=15, day_of_week='sun'),
+    },
+}
+
+SITE_URL = '{{ site_protocol }}://{{ site_domain }}'
+
+LOGFILE = '{{ deploy_log_dir }}/django.log'
+
+LOG_LEVEL = 'DEBUG'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': LOG_LEVEL,
+            'filters': ['require_debug_false'],
+            'formatter': 'verbose',
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'file': {
+            'level': LOG_LEVEL,
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': LOGFILE,
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 5,
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['file'],
+            'level': LOG_LEVEL,
+            'propagate': True,
+        },
+        'default': {
+            'handlers': ['file'],
+            'level': LOG_LEVEL,
+            'propagate': True,
+        },
+    },
+}
+
+
+ML_COMMAND_FILE = '{{ ml_command_file }}'
+ML_COMMAND_DIR = '{{ ml_command_dir }}'
+ML_PYTHON_PATH = '{{ ml_python_path }}'

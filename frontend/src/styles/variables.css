@@ -1,0 +1,26 @@
+:root {
+  /*
+   * Media queries breakpoints
+   * ======================================================================== */
+  @custom-media --xs-down (width < 480px);
+  @custom-media --xs-up (width >= 480px);
+  @custom-media --sm-down (width < 768px);
+  @custom-media --sm-up (width >= 768px);
+  @custom-media --md-down (width < 992px);
+  @custom-media --md-up (width >= 992px);
+  @custom-media --lg-down (width < 1200px);
+  @custom-media --lg-up (width >= 1200px);
+  @custom-media --xl-down (width < 1600px);
+  @custom-media --xl-up (width >= 1600px);
+
+  --screen-xs-min: 480px; /* Extra small screen / phone */
+  --screen-sm-min: 768px; /* Small screen / tablet */
+  --screen-md-min: 992px; /* Medium screen / desktop */
+  --screen-lg-min: 1200px; /* Large screen / wide desktop */
+  --screen-xl-min: 1600px; /* Extra Large screen / extra wide desktop */
+
+  /*
+   * Custom selectors
+   * ======================================================================== */
+  @custom-selector :--hover :hover, :focus;
+}

@@ -1,0 +1,17 @@
+.container {
+  max-width: 600px;
+  margin: 24px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.header {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.form {
+
+}

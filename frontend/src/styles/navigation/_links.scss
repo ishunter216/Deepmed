@@ -1,0 +1,28 @@
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+a {
+	color: $color__brand_green;
+	text-decoration:none;
+
+	&:hover {
+		color: $color__brand_blue;
+		text-decoration:none;
+	}
+
+	&.text-white {
+
+		&:hover {
+			color:#fff!important;
+		}
+	}
+}
+
+/* Remove dotted outline from links */
+a:focus,
+button:focus { 
+	outline:none!important; 
+}
+a::-moz-focus-inner { 
+	border:0!important; 
+}

@@ -1,0 +1,162 @@
+/*--------------------------------------------------------------
+## Headings
+--------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	color:$color__text_heading;
+	margin:0;
+	padding:0;
+	@include transition(all .3s 0s ease);
+
+	&.heading-link {
+		color:$color__brand_blue;
+
+		&:hover, &:active, &:focus {
+			text-decoration: underline;
+		}
+	}
+
+	&.semibold {
+		font-weight: 600;
+	}
+
+	&.heading-thin {
+		font-weight:400;
+		color:$color__text_paragraph;
+
+		strong {
+			color:$color__text_heading;
+		}
+	}
+}
+
+h1, .h1 {
+	font-size:1.75em;
+	font-weight:900;
+
+	@include media (max-width $screen_size__tablet) {
+		font-size:1.65em;
+	}
+
+	@include media (max-width $screen_size__phone) {
+		font-size:1.45em;
+	}
+}
+h2, .h2 {
+	font-size:1.51em;
+	font-weight:400;
+
+	@include media (max-width $screen_size__tablet) {
+		font-size:1.41em;
+	}
+
+	@include media (max-width $screen_size__phone) {
+		font-size:1.31em;
+	}
+}
+h3, .h3 {
+	font-size:1.285em;
+	font-weight:900;
+
+	@include media (max-width $screen_size__tablet) {
+		font-size:1.185em;
+	}
+
+	@include media (max-width $screen_size__phone) {
+		font-size:1.085em;
+	}
+}
+h4, .h4 {
+	font-size:1.2em;
+
+	@include media (max-width $screen_size__tablet) {
+		font-size:1.1em;
+	}
+
+	@include media (max-width $screen_size__phone) {
+		font-size:1em;
+	}
+}
+h5, .h5 {
+	font-size:1em;
+
+	@include media (max-width $screen_size__tablet) {
+		font-size:.9em;
+	}
+
+	@include media (max-width $screen_size__phone) {
+		font-size:.8em;
+	}
+}
+h6, .h6 {
+	font-size:.9em;
+	color:#a4a4a6;
+	font-weight:900;
+
+	@include media (max-width $screen_size__tablet) {
+		font-size:.8em;
+	}
+
+	@include media (max-width $screen_size__phone) {
+		font-size:.7em;
+	}
+}
+
+h1 small, h2 small, 
+h3 small, h4 small, 
+h5 small, h6 small, 
+.h1 small, 
+.h2 small, 
+.h3 small, 
+.h4 small, 
+.h5 small, 
+.h6 small, 
+h1 .small, 
+h2 .small, 
+h3 .small, 
+h4 .small, 
+h5 .small, 
+h6 .small, 
+.h1 .small, 
+.h2 .small, 
+.h3 .small, 
+.h4 .small, 
+.h5 .small, 
+.h6 .small {
+  color: $color__text_heading;
+
+  &.normal-text-color {
+  	color:$color__text_heading;
+  	font-weight: 700;
+  }
+}
+
+
+/*
+h1 {
+	@include media (max-width $screen_size__sm) {
+		font-size:1.7rem;
+	}
+}
+h2 {
+	@include media (max-width $screen_size__sm) {
+		font-size:1rem;
+	}
+}
+h3 {
+	@include media (max-width $screen_size__sm) {
+		font-size:.9rem;
+	}
+}
+h4 {
+	@include media (max-width $screen_size__sm) {
+		font-size:.85rem;
+	}
+}
+h5 {
+	@include media (max-width $screen_size__sm) {
+		font-size:.7rem;
+	}
+}
+*/

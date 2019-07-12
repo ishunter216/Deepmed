@@ -1,0 +1,60 @@
+/*--------------------------------------------------------------
+## Main Colors
+--------------------------------------------------------------*/
+
+/* Gradient */ 
+@mixin brand_gradient() {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#47cfd1+0,48ccf5+100 */
+	background: rgb(71,207,209); /* Old browsers */
+	background: -moz-linear-gradient(left, rgba(71,207,209,1) 0%, rgba(72,204,245,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, rgba(71,207,209,1) 0%,rgba(72,204,245,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, rgba(71,207,209,1) 0%,rgba(72,204,245,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47cfd1', endColorstr='#48ccf5',GradientType=1 ); /* IE6-9 */
+}
+
+/* Blues */
+$color__brand_blue: #48ccf5;
+$color__brand_blue_lighter:lighten( $color__brand_blue, 3% );
+$color__brand_blue_light:lighten( $color__brand_blue, 5% );
+$color__brand_blue_medium: darken( $color__brand_blue, 3% );
+$color__brand_blue_dark: darken( $color__brand_blue, 5% );
+$color__brand_blue_dark_alt: darken( $color__brand_blue, 6% );
+
+/* Greens */
+$color__brand_green: #47cfd1;
+$color__brand_green_medium: darken( $color__brand_green, 3% );
+$color__brand_green_medium_alt: darken( $color__brand_green, 5% );
+$color__brand_green_light: lighten( $color__brand_green, 5% );
+
+/* Yellows */
+$color__brand_yellow: #ffc757;
+
+/* Reds */
+$color__brand_red: #ff5757;
+
+/* Grays */
+$color__brand_gray: #f0f0f2;
+$color__brand_gray_light: #fafafa;
+$color__brand_gray_dark: #979799;
+
+$color__brand_light: #ffffff;
+$color__bs_highlight: #f7feff;
+
+/*--------------------------------------------------------------
+## Elements
+--------------------------------------------------------------*/
+
+/* Bootstrap */
+$color__state-danger:#ff644c;
+$color__state-warning:#d9a516;
+
+/* Text*/
+$color__text_heading:#656566;
+$color__text_paragraph:#656566;
+$color__text_inactive: #d8d8d8;
+
+/* Borders */
+$color__border_gray: #f0f0f2;
+
+/* Other */
+$color__table_hover-row:#f5fbff;

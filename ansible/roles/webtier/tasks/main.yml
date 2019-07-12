@@ -1,0 +1,19 @@
+---
+- name: Git | Pull sources from the repository
+  git:
+   dest: '{{ deploy_src_dir }}'
+   repo: '{{ project_repo }}'
+   version: '{{ project_repo_branch }}'
+   force: yes
+   update: yes
+   accept_hostkey: yes
+   key_file: ~/.ssh/id_rsa_deepmed
+  when: not skip_checkout
+  register: site_git_clone
+  tags: [backend, frontend]
+
+- include: backend.yml
+  tags: [backend]
+
+- include: frontend.yml
+  tags: [frontend]

@@ -1,0 +1,28 @@
+---
+- name: Yarn | Install dependencies
+  command: yarn install
+  args:
+    chdir: '{{ frontend_src_dir }}'
+  when: force_upgrade
+  tags: [provision, frontend]
+
+- name: Yarn | build
+  command: yarn build --release
+  args:
+    chdir: '{{ frontend_src_dir }}'
+  when: force_upgrade
+  tags: [provision, frontend]
+
+- name: Yarn | Install dependencies
+  command: yarn install
+  args:
+    chdir: '{{ frontend_src_dir }}/build'
+  when: force_upgrade
+  tags: [provision, frontend]
+
+- name: Restart services
+  become: true
+  command: 'true'
+  when: run_handlers
+  notify:
+    - restart webapp

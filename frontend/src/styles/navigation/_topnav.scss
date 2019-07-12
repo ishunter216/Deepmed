@@ -1,0 +1,119 @@
+/*--------------------------------------------------------------
+## Top Nav
+--------------------------------------------------------------*/
+.navbar {
+	background: $color__brand_gray;
+	padding:10px 30px;
+	position: fixed;
+	top:0;
+	left:0;
+	z-index:1036;
+	padding-left:$container__sidebar_width + 30;
+
+	@include media (max-width $screen_size__tablet) {
+		padding-left:$container__sidebar_width_mobile + 15;
+		position: relative;
+	}
+
+	.txt-white {
+		color: #fff;
+	}
+
+	a.mobile-sidebar-trigger-container {
+		position:absolute;
+		left:0;
+		top:0;
+		width:$container__sidebar_width_mobile;
+		height:100%;
+		@include brand_gradient();
+		display:none;
+		text-align: center;
+		z-index: 2;
+		cursor: pointer;
+
+		@include media (max-width $screen_size__tablet) {
+			display:block;
+		}
+
+		i {
+			position:relative;
+			top: 50%;
+      transform: translateY(-50%);
+			font-size:30px;
+			color:#fff!important;
+		}
+
+	}
+
+	.icon-close-menu {
+		display: none;
+	}
+
+	&.has-sidebar-open {
+
+		.icon-close-menu {
+			display: inline-block;
+		}
+
+		.icon-open-menu {
+			display: none;
+		}
+	}
+
+	.dropdown-menu {
+		top:40px;
+	}
+
+	.user-dropdown {
+
+		.avatar {
+			width:36px;
+			height:36px;
+			@include border-radius(200%);
+			background-size:cover;
+			background-position: center center;
+			background-repeat:no-repeat;
+			margin-right: 10px;
+		}
+	}
+
+	.alerts-wrapper {
+		position: relative;
+		top:.2rem;
+
+		.circle {
+			width:2.1rem;
+			height:2.1rem;
+			@include border-radius(200%);
+			@include brand_gradient();
+			text-align: center;
+			display: block;
+			position:absolute;
+			z-index: 2;
+			top:-.7rem;
+			left:-.9rem;
+			border:2px solid $color__brand_gray;
+
+			span {
+				font-size: .85rem;
+				color: #fff;
+				position: absolute;
+				display: inline-block;
+				line-height: 1.1rem;
+				left: 0;
+				right: 0;
+				margin-left: auto;
+				margin-right: auto;
+				top: .35rem;
+				letter-spacing: -.1rem;
+			}
+		}
+
+		i {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+}
+

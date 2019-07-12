@@ -1,0 +1,61 @@
+/*TODO refactor this spinner (.loading-spinner)*/
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  width: 100%;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+
+  :global {
+    animation: spin .5s linear infinite;
+  }
+}
+
+.inner {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  margin-top: 50%;
+  background: #47cfd1;
+  background: -webkit-linear-gradient(left, #47cfd1 0%, #48ccf5 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#47cfd1), to(#48ccf5));
+  background: -o-linear-gradient(left, #47cfd1 0%, #48ccf5 100%);
+  background: linear-gradient(to right, #47cfd1 0%, #48ccf5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#47cfd1', endColorstr='#48ccf5', GradientType=1);
+}
+
+.inner:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin-top: -50%;
+  background: #47cfd1;
+  background: -webkit-linear-gradient(left, #47cfd1 0%, #48ccf5 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#47cfd1), to(#48ccf5));
+  background: -o-linear-gradient(left, #47cfd1 0%, #48ccf5 100%);
+  background: linear-gradient(to right, #47cfd1 0%, #48ccf5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#47cfd1', endColorstr='#48ccf5', GradientType=1);
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+.inner:after {
+  content: '';
+  width: 80%;
+  height: 160%;
+  position: absolute;
+  margin-top: -40%;
+  margin-left: 10%;
+  background: white;
+  border-radius: 50%;
+}

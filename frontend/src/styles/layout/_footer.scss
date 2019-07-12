@@ -1,0 +1,32 @@
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+
+@include media (min-width 992px) {
+	footer {
+		p {
+			&.small {
+				font-size: 1em;
+			}
+		}
+	}
+}
+
+footer.footer {
+	background: #fff;
+	padding: 15px 0;
+	min-height: 77px;
+	font-size: 15.5px;
+	color: #858788;
+	a {
+		color: inherit;
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	&.bg-grey {
+		background: #E8EBED;
+		font-size: 1.3em;
+	}
+}

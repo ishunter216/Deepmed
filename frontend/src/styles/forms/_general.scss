@@ -1,0 +1,23 @@
+/*--------------------------------------------------------------
+## Forms General
+--------------------------------------------------------------*/
+.form-control {
+  color:$color__text_paragraph;
+  @include box-shadow(none);
+}
+
+.form-inline {
+
+	.form-group {
+		display: inline-block;
+	}
+}
+
+.iCheck-helper {
+	position:relative;
+}
+
+.input-validation-error {
+	border-color: #a94442!important;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset!important;
+}

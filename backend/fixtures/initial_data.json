@@ -1,0 +1,37 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": "7c32d60d-6312-42f6-a73a-22da56b07374",
+    "fields": {
+      "last_name": "LastName",
+      "last_login": "2015-12-29T00:57:23.201Z",
+      "date_joined": "2015-12-29T00:57:23.201Z",
+      "date_updated": "2015-12-29T00:57:23.201Z",
+      "confirmed_email": false,
+      "first_name": "FirstName",
+      "email": "a@a.com",
+      "gender": "M",
+      "is_active": true,
+      "password": "pbkdf2_sha256$20000$fSnaTbagnHiD$lZ5k1ZHDNM4oZir2IrWIrcRh0bEh4wYu+uuhh4ZZ9ZQ=",
+      "is_staff": true,
+      "is_superuser": true,
+      "activation_key": "64f5b041-81ed-4251-bf62-54b9c0a14848"
+    }
+  },
+  {
+    "model": "oauth2_provider.application",
+    "pk": 1,
+    "fields": {
+      "client_id": "4XnsRtTGMUp1TO3WCniWsl5THzLNmjcfqU5Keh5C",
+      "user": "7c32d60d-6312-42f6-a73a-22da56b07374",
+      "redirect_uris": "",
+      "client_type": "public",
+      "created": "2015-12-29T00:57:23.201Z",
+      "updated": "2015-12-29T00:57:23.201Z",
+      "authorization_grant_type": "password",
+      "client_secret": "ugpViM0R277iKi70ZMB9PI126gFygDkHau7Ztf11L9yuQ9c8uWIzXExhoMetgJpV1YAS9szAsjs6KmCM4IIl8Y5zFhmUDBfj07o7nUCQp2MmM66GBvn3lvSCY3z2WfPn",
+      "name": "web_auth",
+      "skip_authorization": false
+    }
+  }
+]

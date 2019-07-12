@@ -1,0 +1,138 @@
+/*--------------------------------------------------------------
+## Fields
+--------------------------------------------------------------*/
+
+/* Global */
+.form-control {
+	border-color:$color__brand_gray;
+	font-size:1em;
+	font-weight:400;
+	background-color:#fff;
+	color:#a4a4a6;
+
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+
+	&:focus {
+		border-color:$color__brand_green;
+		color:$color__text_paragraph;
+	}
+}
+
+/* Textarea */
+textarea {
+	resize:none;
+
+	&:focus {
+		outline: 0 none!important;
+		@include box-shadow(none!important);
+	}
+
+	&.textarea-alt {
+		border:0 none!important;
+		background-color:transparent!important;
+		padding:0!important;
+		height:auto;
+		min-height: 0;
+		padding-top:15px!important;
+	}
+}
+
+/* Input Fields */
+input.form-control,
+select.form-control {
+	@include box-sizing(border-box);
+
+	&:focus {
+		outline: 0 none!important;
+		@include box-shadow(none!important);
+	}
+
+	&.text-input-sm {
+		height:30px;
+	}
+
+	&.text-input-lg {
+		height:48px;
+	}
+}
+.inline-sm-form-control {
+	max-width:110px;
+}
+.inline-md-form-control {
+	max-width:220px;
+}
+
+/* Labels */
+label {
+	font-weight:400;
+	font-size:1em;
+	color:$color__text_paragraph;
+}
+
+/* Icons inside input fields */
+.inner-addon { 
+    position: relative; 
+}
+.inner-addon .fa {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  z-index: 2;
+}
+.left-addon .fa { left:  0px;}
+.right-addon .fa { right: 0px;}
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.inner-addon-link {
+	.fa {
+		color:$color__brand_green;
+		pointer-events:auto;
+		cursor: pointer;
+	}
+	.fa:hover,
+	.fa:active {
+		color:$color__brand_green_medium;
+	}
+}
+
+.input-group-addon {
+	color: $color__brand_blue;
+}
+
+/* Custom Input Group w/button on the right */
+.input-group-custom-btn {
+	> input {
+		@include border-radius(3px!important);
+	}
+	.input-group-addon { 
+		border:0 none;
+		padding: 0 0 0 10px;
+	}
+}
+
+/* Select */
+select {
+
+	&:focus {
+		outline: 0 none!important;
+		@include box-shadow(none!important);
+	}
+
+}
+
+/* Disabled */
+input.form-control,
+select.form-control,
+textarea.form-control {
+
+	&:disabled {
+		background-color:$color__brand_gray;
+	}
+}
+
+.error-field {
+	border-color: rgb(185, 74, 72)!important;
+}
