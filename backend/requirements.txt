@@ -35,7 +35,7 @@ factory-boy==2.9.2
 Faker==0.8.10
 flake8==3.5.0
 flake8-polyfill==1.0.2
-flower==0.9.2
+flower==1.2.0
 gitdb2==2.0.3
 GitPython==2.1.8
 gunicorn==19.7.0
